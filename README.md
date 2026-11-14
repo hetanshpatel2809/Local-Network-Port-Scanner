@@ -1,5 +1,4 @@
 # Local-Network-Port-Scanner
-# Local Network Port Scanner
 
 ## Overview
 This project focuses on scanning a local network to identify active devices, discover open ports, and understand the security exposure of network-connected devices using Nmap.
