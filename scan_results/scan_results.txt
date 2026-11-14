@@ -1,0 +1,246 @@
+============================================================
+             LOCAL NETWORK PORT SCAN REPORT
+============================================================
+
+Project       : Local Network Port Scanner
+Tool          : Nmap 7.99
+Scan Type     : TCP SYN Scan
+Target Network: 192.168.0.0/24
+Scan Date     : 14 November 2026
+Scan Time     : 17:20 (+0530)
+Scan Duration : 28.41 seconds
+
+============================================================
+1. SCAN COMMAND
+============================================================
+
+nmap -sS 192.168.0.0/24
+
+============================================================
+2. SCAN SUMMARY
+============================================================
+
+Total IP Addresses Scanned : 256
+Active Hosts Discovered    : 8
+Hosts with Open Ports      : 3
+Hosts with No Open Ports   : 5
+Total Open TCP Ports       : 12
+Scan Status                : Completed
+
+============================================================
+3. DISCOVERED DEVICES AND OPEN PORTS
+============================================================
+
+DEVICE 1
+------------------------------------------------------------
+IP Address  : 192.168.0.1
+MAC Address : 50:2B:73:A1:3E:A0
+Manufacturer: Tenda Technology
+
+PORT       STATE       SERVICE
+80/tcp     open        http
+
+Closed Ports: 999
+
+Observation:
+The device has an open HTTP port, potentially used for
+web-based router administration. Check whether the
+administration interface uses secure HTTPS access.
+
+
+DEVICE 2
+------------------------------------------------------------
+IP Address  : 192.168.0.100
+MAC Address : FC:03:9F:07:59:AB
+Manufacturer: Samsung Electronics
+
+PORT       STATE       SERVICE
+8001/tcp   open        vcom-tunnel
+8002/tcp   open        teradataordbms
+8080/tcp   open        http-proxy
+32768/tcp  open        filenet-tms
+32769/tcp  open        filenet-rpc
+
+Closed Ports: 995
+
+Observation:
+Five TCP ports were found open. Further service detection
+is required to identify the actual applications and
+determine whether these services are necessary.
+
+
+DEVICE 3
+------------------------------------------------------------
+IP Address  : 192.168.0.101
+MAC Address : 86:8E:44:40:B4:0F
+Manufacturer: Unknown
+
+Open Ports: None detected
+Closed Ports: 1000
+
+Observation:
+All 1000 scanned TCP ports were reported closed.
+
+
+DEVICE 4
+------------------------------------------------------------
+IP Address  : 192.168.0.102
+MAC Address : C2:2C:2F:53:28:E3
+Manufacturer: Unknown
+
+Open Ports: None detected
+Closed Ports: 1000
+
+Observation:
+All 1000 scanned TCP ports were reported closed.
+
+
+DEVICE 5
+------------------------------------------------------------
+IP Address  : 192.168.0.104
+MAC Address : C6:AB:F9:3F:09:4B
+Manufacturer: Unknown
+
+Open Ports: None detected
+Closed Ports: 1000
+
+Observation:
+All 1000 scanned TCP ports were reported closed.
+
+
+DEVICE 6
+------------------------------------------------------------
+IP Address  : 192.168.0.106
+MAC Address : EE:B6:CD:08:3C:98
+Manufacturer: Unknown
+
+Open Ports: None detected
+Closed Ports: 1000
+
+Observation:
+All 1000 scanned TCP ports were reported closed.
+
+
+DEVICE 7
+------------------------------------------------------------
+IP Address  : 192.168.0.107
+MAC Address : 86:4A:D9:48:7E:A8
+Manufacturer: Unknown
+
+Open Ports: None detected
+Closed Ports: 1000
+
+Observation:
+All 1000 scanned TCP ports were reported closed.
+
+
+DEVICE 8
+------------------------------------------------------------
+IP Address  : 192.168.0.114
+MAC Address : Not reported
+
+PORT       STATE       SERVICE
+135/tcp    open        msrpc
+139/tcp    open        netbios-ssn
+445/tcp    open        microsoft-ds
+5432/tcp   open        postgresql
+8000/tcp   open        http-alt
+8089/tcp   open        unknown
+
+Closed Ports: 994
+
+Observation:
+The device exposes Windows networking-related ports,
+a PostgreSQL database port, and two additional services
+requiring further identification.
+
+============================================================
+4. SECURITY ANALYSIS
+============================================================
+
+PORT 80 - HTTP
+Potential Risk:
+Unencrypted web communication may expose sensitive
+information if credentials or data are transmitted.
+
+PORT 135 - MSRPC
+Potential Risk:
+Unnecessary exposure of remote procedure call services
+may increase the network attack surface.
+
+PORT 139 - NETBIOS
+Potential Risk:
+May expose legacy network sharing and information.
+
+PORT 445 - SMB
+Potential Risk:
+Weak SMB configurations or outdated versions may
+expose shared files and create security weaknesses.
+
+PORT 5432 - POSTGRESQL
+Potential Risk:
+Unrestricted database access may expose sensitive
+information.
+
+PORT 8000 - HTTP-ALT
+Potential Risk:
+The application or service running on this port
+requires identification and configuration review.
+
+PORT 8080 - HTTP-PROXY
+Potential Risk:
+An improperly configured proxy may allow unauthorized
+access or unintended traffic forwarding.
+
+PORT 8001, 8002, 32768, 32769
+Potential Risk:
+Service identification and configuration checks are
+required before determining their security implications.
+
+PORT 8089 - UNKNOWN
+Potential Risk:
+The running service is unidentified and requires
+further investigation.
+
+============================================================
+5. KEY FINDINGS
+============================================================
+
+1. Discovered 8 active hosts in the local network.
+2. Identified 3 hosts with open TCP ports.
+3. Detected 12 open TCP ports in total.
+4. Identified HTTP, SMB, MSRPC and PostgreSQL services.
+5. Five devices had all 1000 scanned ports closed.
+6. Several ports require additional service identification.
+
+============================================================
+6. SECURITY RECOMMENDATIONS
+============================================================
+
+1. Disable unnecessary network services.
+2. Restrict access to administrative interfaces.
+3. Use HTTPS for web administration.
+4. Secure SMB and database services.
+5. Investigate unidentified open ports.
+6. Apply security updates to network devices.
+7. Regularly monitor network exposure.
+
+============================================================
+7. CONCLUSION
+============================================================
+
+The local network scan was successfully completed
+using Nmap 7.99.
+
+A total of 8 active hosts were discovered among
+256 scanned IP addresses. The scan identified
+12 open TCP ports across 3 devices.
+
+This practical exercise provided experience in
+network reconnaissance, TCP SYN scanning, port
+identification, service discovery and basic
+network security assessment.
+
+============================================================
+                 END OF REPORT
+============================================================
